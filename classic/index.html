@@ -457,6 +457,8 @@ summary::after{color:var(--gold)}
 .of-map iframe{display:block;width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.6) sepia(.15) contrast(1.02)}
 @media (max-width:980px){.office{grid-template-columns:1fr}}
 
+.steps{grid-template-columns:repeat(3,1fr)}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -517,7 +519,7 @@ summary::after{color:var(--gold)}
 </div>
 <div class="quote">
 <blockquote data-t="w-q">«Мы не обещаем лишнего. Но за своё — отвечаем»</blockquote>
-<div><p class="eyebrow" style="margin-bottom:10px" data-t="w-b">Возим грузы брендов</p><div class="brands"><span>HOFFMANN</span><span>LG</span><span>SAMSUNG</span><span>BOSCH</span><span>GREE</span><span>XIAOMI</span><span>HUAWEI</span><span>LENOVO</span><span>OPPO</span><span>VIVO</span><span>HONOR</span><span>REALME</span><span>HAIER</span><span>MIDEA</span><span>HISENSE</span><span>TCL</span><span>GALANZ</span><span>AUX</span><span>CHIGO</span><span>DELI</span><span>TOTAL</span><span>INGCO</span><span>BYD</span><span>CHERY</span><span>GEELY</span><span>TRIANGLE</span><span>LINGLONG</span><span class="more" data-t="br-more">+ другие крупные китайские бренды</span></div></div>
+<div><p class="eyebrow" style="margin-bottom:10px" data-t="w-b">Возим грузы брендов</p><div class="brands"><span>XIAOMI</span><span>HUAWEI</span><span>SAMSUNG</span><span>LG</span><span>LENOVO</span><span>HAIER</span><span>MIDEA</span><span>GREE</span><span>BYD</span><span>GEELY</span><span class="more" data-t="br-more">+ другие крупные китайские бренды</span></div></div>
 </div>
 </div>
 </section>
@@ -529,12 +531,8 @@ summary::after{color:var(--gold)}
 </div>
 <div class="services">
 <article class="svc"><span class="tag" data-t="s1t">СБОРНЫЙ ГРУЗ</span><h3 data-t="s1h">Грузоперевозки</h3><p data-t="s1p">Везём небольшие партии вместе с грузами других клиентов. Платите только за свой объём или вес.</p></article>
-<article class="svc"><span class="tag">FTL</span><h3 data-t="s2h">Full Truck</h3><p data-t="s2p">Отдельная фура под ваш груз. Без перегрузов и попутных остановок.</p></article>
 <article class="svc"><span class="tag" data-t="s3t">КОНТЕЙНЕР</span><h3 data-t="s3h">Контейнеры напрямую</h3><p data-t="s3p">Прямая доставка контейнеров из Китая в Таджикистан.</p></article>
 <article class="svc"><span class="tag" data-t="s4t">Ж/Д</span><h3 data-t="s4h">Железная дорога</h3><p data-t="s4p">Для тяжёлых и крупных партий, когда важна цена за тонну.</p></article>
-<article class="svc"><span class="tag" data-t="s5t">АВИА</span><h3 data-t="s5h">Авиадоставка</h3><p data-t="s5p">Когда груз нужен срочно: образцы, электроника, документы.</p></article>
-<article class="svc"><span class="tag" data-t="s6t">ТАМОЖНЯ</span><h3 data-t="s6h">Таможенное оформление</h3><p data-t="s6p">Берём таможню на себя. Вы получаете груз, а не пакет бумаг.</p></article>
-<article class="svc"><span class="tag" data-t="s7t">СКЛАД</span><h3 data-t="s7h">Хранение и переупаковка</h3><p data-t="s7p">Склады в Китае для сборки партий. Переупакуем и промаркируем товар.</p></article>
 <article class="svc"><span class="tag" data-t="s8t">УЗБЕКИСТАН</span><h3 data-t="s8h">Грузы из Узбекистана</h3><p data-t="s8p">Склады в Коканде и Ташкенте. Везём грузы из Узбекистана в Таджикистан.</p></article>
 </div>
 </div>
@@ -562,10 +560,8 @@ summary::after{color:var(--gold)}
 <div class="head"><div><span class="eyebrow" data-t="h-e">Как работаем</span><h2 data-t="h-h">Путь груза</h2></div><p data-t="h-p">Вы следите только за двумя моментами: когда отдали груз и когда забрали.</p></div>
 <div class="steps">
 <div class="step"><h3 data-t="st1">Заявка</h3><p data-t="st1p">Пишете менеджеру: что везёте, откуда, вес и объём.</p></div>
-<div class="step"><h3 data-t="st2">Приём в Китае</h3><p data-t="st2p">Поставщик сдаёт груз на наш склад с вашим кодом. Взвешиваем, замеряем, фотографируем.</p></div>
-<div class="step"><h3 data-t="st3">Отправка</h3><p data-t="st3p">Груз уходит в Таджикистан. Менеджер сообщает, где сейчас груз.</p></div>
-<div class="step"><h3 data-t="st4">Прибытие</h3><p data-t="st4p">Груз прибыл в Таджикистан. Вам звонят и приглашают на выдачу.</p></div>
-<div class="step"><h3 data-t="st5">Выдача</h3><p data-t="st5p">Оплачиваете в сомони и забираете груз.</p></div>
+<div class="step"><h3 data-t="st3">Отправка</h3><p data-t="st23p">Поставщик сдаёт груз на наш склад с вашим кодом. Мы отправляем его в Таджикистан.</p></div>
+<div class="step"><h3 data-t="st5">Выдача</h3><p data-t="st45p">Звоним, когда груз прибыл. Оплачиваете в сомони и забираете.</p></div>
 </div>
 </div>
 </section>
@@ -670,6 +666,7 @@ summary::after{color:var(--gold)}
 </div>
 <script>
 var TJ={
+st23p:"Таъминкунанда борро бо рамзи шумо ба анбори мо месупорад. Мо онро ба Тоҷикистон мефиристем.",st45p:"Вақте бор расид, занг мезанем. Бо сомонӣ пардохт мекунед ва борро мегиред.",
 "ofc-e":"Офис","ofc-h":"Ба офиси мо биёед","ofc-a":"Суроға","ofc-b":"Дар Google Maps кушодан","ru-open":"Рӯйхатро нишон додан",q5:"Бастабандӣ дар панҷараи чӯбӣ",q6:"Гузоштани аломати «Шикананда»",q7:"Гузоштани аломатҳои «Боло»",
 f0n:"аз 2020",f0:"сол бор аз Чин мебарем",
 s7t:"АНБОР",s7h:"Нигоҳдорӣ ва бастабандии нав",s7p:"Анборҳо дар Чин барои ҷамъ кардани бор. Молро аз нав бастабандӣ ва нишонагузорӣ мекунем.",
