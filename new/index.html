@@ -14,7 +14,7 @@
 <meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@900&family=Geologica:wght@300;400;500;600&family=Onest:wght@400;500;600;700&display=swap">
 <style>
 :root{
 --yellow:#FFCB05; --red:#D3302A; --ink:#141412;
@@ -651,6 +651,70 @@ body{background:#fff}
 .of-info dl{border-top-color:var(--yellow)}
 .codebar input{background:#FFF8D6}
 .ok-box b{color:var(--ink)}
+
+/* ===== PREMIUM: воздух, строгий шрифт, меньше цвета, крупные цифры, плавное появление ===== */
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--display:"Geologica","Onest",system-ui,sans-serif;--line:#ECEAE3}
+h1,h2,h3{font-family:var(--display)}
+h2{font-weight:500;font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-.025em}
+h3{font-weight:600;font-size:18px;letter-spacing:-.01em}
+.brand b{font-family:"Unbounded","Arial Black",sans-serif}
+section{padding-block:clamp(64px,9vw,128px)}
+.head{margin-bottom:clamp(36px,5vw,56px)}
+.head p{font-size:17px}
+
+/* шапка */
+.hero{padding-block:clamp(48px,7vw,96px) clamp(48px,7vw,96px)}
+.hero h1{font:500 clamp(40px,5.6vw,72px)/1.02 var(--display);letter-spacing:-.035em}
+.hero h1 em{font-weight:500}
+.hero .lead{font-size:clamp(17px,1.5vw,19px);max-width:40ch}
+.mapcard{border:0;box-shadow:0 30px 60px -36px rgba(20,20,20,.28)}
+
+/* меньше цвета: красный только на Таджикистане */
+.mapcard .live{color:var(--ink)}
+.mapcard .live i{background:var(--ink)}
+.map-foot b,.map-foot a{color:var(--ink)}
+.map-foot a{text-decoration:underline;text-underline-offset:3px}
+#hero-map .route{stroke:#B89400;opacity:.55}
+#hero-map .dot,#hero-map .dot-s,#hero-map .halo{fill:var(--ink)}
+#hero-map .city.sel .lbl{fill:var(--ink)}
+.rule.no li::before{color:var(--ink)}
+summary::after{color:var(--ink)!important}
+.rule.no{border-top-color:var(--ink)}
+
+/* крупные тонкие цифры */
+.facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact{padding-block:36px}
+.fact strong{font:300 clamp(34px,4.2vw,56px)/1 var(--display);letter-spacing:-.04em;color:var(--ink);white-space:nowrap}
+.fact span{font-size:14px;margin-top:6px}
+
+/* воздух: без рамок, тонкие линии */
+.why article,.svc,.rule,.acard,.of-info{background:transparent;border:0;border-top:1px solid var(--ink);border-radius:0;padding:24px 0 0}
+.why article:hover,.svc:hover{border-color:var(--ink)}
+.why,.services,.rules{gap:clamp(24px,3vw,40px)}
+.rule.no,.rule.ask,.rule.pack{border-top-width:1px}
+.rule.ask{border-top:2px solid var(--yellow)}
+.acard{padding-top:20px}
+.codebar{background:#F7F6F2;border:0;border-radius:14px}
+.quote{border:0;border-left:3px solid var(--yellow);border-radius:0;padding:4px 0 4px 28px;margin-top:56px}
+.quote blockquote{font:500 clamp(22px,2.8vw,34px)/1.2 var(--display);letter-spacing:-.02em}
+.brands span{background:#F5F4EF;border:0;color:var(--ink);font-weight:600}
+.brands .more{border:0;background:transparent;text-decoration:underline;text-underline-offset:3px}
+.step{border-top-width:1px;border-top-color:var(--ink);padding-top:22px}
+.of-info{padding-top:24px}
+.of-map{border:0;border-radius:18px}
+.order{border:0;border-top:1px solid var(--ink);border-radius:0;padding-inline:0;padding-block:clamp(40px,5vw,64px) 0}
+.oform{border:0;border-radius:18px}
+.term,details,details:first-of-type{border-color:var(--line)}
+footer{border-top:1px solid var(--line)}
+.order h2{font-weight:500;letter-spacing:-.03em}
+
+/* плавное появление при прокрутке */
+@media (prefers-reduced-motion:no-preference){
+@supports (animation-timeline:view()){
+.head,.why article,.svc,.step,.fact,.acard,.quote,.of-info,.of-map,.order>*{animation:rise both linear;animation-timeline:view();animation-range:entry 0% entry 35%}
+@keyframes rise{from{transform:translateY(28px)}to{transform:none}}
+}
+}
 </style>
 </head>
 <body>
