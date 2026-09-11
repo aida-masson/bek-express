@@ -11,7 +11,7 @@
 <meta property="og:title" content="BEK Express — грузы из Китая в Таджикистан">
 <meta property="og:description" content="BEK Express — доставка грузов из Китая и Узбекистана в Таджикистан с 2020 года. Склады в Урумчи, Гуанчжоу, Иву, Кечао, Хоргосе, Фошане, Коканде и Ташкенте. Срок из Китая 12–22 дня.">
 <meta property="og:url" content="https://bek-express.com/classic/">
-<meta name="theme-color" content="#FFD400">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800;900&family=Onest:wght@400;500;600;700&display=swap">
@@ -615,6 +615,42 @@ footer{color:var(--muted)}
 .fab-btn{background:var(--wa);color:#fff;box-shadow:0 14px 30px -12px rgba(31,168,85,.6)}
 .fab-menu a{background:#fff;color:var(--ink);border-color:var(--line);border-radius:12px}
 
+/* ===== WHITE: белый фон, жёлтый — только акцент ===== */
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{--ground:#FFFFFF;--surface:#FFFFFF;--line:#E7E5DD;--field:#F7F6F2;--accent-text:#8C6F00}
+body{background:#fff}
+.eyebrow{color:var(--ink)}
+.eyebrow::before{content:"";display:inline-block;width:9px;height:9px;background:var(--yellow);border-radius:2px;margin-right:9px;vertical-align:0}
+.top{background:#fff;border-top:6px solid var(--yellow);border-bottom:1px solid var(--line)}
+.top .nav{border-bottom:1px solid var(--line)}
+.tel small{color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--yellow);color:var(--ink)}
+.hero .eyebrow{opacity:1}
+.hero h1 em{color:var(--ink);background:linear-gradient(transparent 60%,var(--yellow) 60%,var(--yellow) 92%,transparent 92%);padding:0 .05em}
+.hero .lead{color:var(--muted)}
+.mapcard{border:1px solid var(--line);box-shadow:0 20px 44px -30px rgba(40,34,10,.35)}
+.why .tag,.svc .tag,.acard .code,.chips .grp,.of-info dt,.clist small{color:var(--accent-text)}
+.why article:hover,.svc:hover{border-color:var(--yellow)}
+.step{border-top-color:var(--yellow)}
+.step::before{color:var(--accent-text)}
+.quote{background:#fff;color:var(--ink);border:1px solid var(--line);border-left:6px solid var(--yellow);border-radius:14px}
+.quote blockquote{color:var(--ink)}
+.quote .eyebrow{color:var(--ink)!important;opacity:1}
+.brands span{background:#F7F6F2;border:1px solid var(--line);color:var(--ink)}
+.brands .more{background:transparent;border:1px dashed #C9C6BA;color:var(--muted)}
+.rules-dd>summary::after{color:var(--yellow)}
+.order{background:#fff;border:1px solid var(--line);border-top:6px solid var(--yellow);border-radius:20px}
+.order .eyebrow{color:var(--ink)!important}
+.order .lead{color:var(--muted)}
+.clist{border-top:2px solid var(--yellow)}
+.clist a,.clist div{border-bottom-color:var(--line)}
+.oform{background:#F7F6F2;box-shadow:none;border:1px solid var(--line)}
+.oform input,.oform select,.oform textarea{background:#fff}
+.oform .chips button{background:#fff}
+.btn-yellow{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn-yellow:hover{background:#FFDF33}
+.of-info dl{border-top-color:var(--yellow)}
+.codebar input{background:#FFF8D6}
+.ok-box b{color:var(--ink)}
 </style>
 </head>
 <body>
