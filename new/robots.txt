@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bek-express.com/sitemap.xml
