@@ -780,6 +780,23 @@ footer{border-top:1px solid var(--line)}
 .tr b{font:700 14px/1.3 var(--body)}
 .tr span,.tr a{color:var(--muted);font-size:13.5px}
 @media (max-width:760px){.trust{grid-template-columns:1fr 1fr}}
+
+/* ВСПЛЫВАЮЩЕЕ ОКНО */
+.pop{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:18px;background:rgba(18,18,16,.45);opacity:0;pointer-events:none;transition:opacity .25s ease}
+.pop.on{opacity:1;pointer-events:auto}
+.pop-card{position:relative;background:#fff;border-radius:20px;padding:clamp(26px,4vw,36px);width:min(430px,100%);box-shadow:0 40px 80px -30px rgba(0,0,0,.55);display:grid;gap:14px;transform:translateY(14px);transition:transform .25s ease}
+.pop.on .pop-card{transform:none}
+.pop-card h3{margin:0;font:900 clamp(21px,3vw,26px)/1.15 var(--display);letter-spacing:-.01em}
+.pop-card>p{margin:0;color:var(--muted);font-size:15px}
+.pop-btns{display:grid;gap:10px;margin-top:6px}
+.pop-btns .btn{width:100%}
+.pop-x{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--muted);font:400 20px/1 var(--body);cursor:pointer;display:grid;place-items:center;padding:0}
+.pop-x:hover{color:var(--text)}
+.pop-note{margin:2px 0 0;text-align:center;font-size:13.5px}
+.pop-note a{color:var(--muted)}
+/* аватар менеджера */
+.mgr-ph{background:#F5F4EF!important;color:var(--muted)}
+.mgr-ph svg{width:32px;height:32px}
 </style>
 </head>
 <body>
@@ -918,7 +935,7 @@ footer{border-top:1px solid var(--line)}
 <div><dt data-t="o-h2">Часы работы</dt><dd data-t="o-hv">9:00–19:00, без выходных</dd></div>
 <div><dt data-t="o-tel">Телефон</dt><dd><a href="tel:+992113331999">+992 11 333 1999</a></dd></div>
 </dl>
-<div class="mgr"><div class="mgr-ph" data-t="mg-ph">ФОТО</div><div><b data-t="mg-n">Имя менеджера</b><em data-t="mg-r">Ведёт вашу заявку от начала до конца. В WhatsApp отвечает за 15 минут.</em></div></div>
+<div class="mgr"><div class="mgr-ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.2" r="3.8"/><path d="M4.5 20.5a7.5 7.5 0 0 1 15 0"/></svg></div><div><b data-t="mg-n">Абдукадир</b><em data-t="mg-r">Старший менеджер, 7 лет в компании. Ведёт заявку от начала до выдачи.</em></div></div>
 <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%86%D0%B5%D0%BD%D1%82%D1%80%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%20%D0%A1%D0%B8%D1%82%D0%B8%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5" target="_blank" rel="noopener" data-t="ofc-b">Открыть в Google Картах</a>
 </div>
 <div class="of-map"><iframe title="Офис BEK Express на карте" src="https://maps.google.com/maps?q=%D0%91%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D1%86%D0%B5%D0%BD%D1%82%D1%80%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5%20%D0%A1%D0%B8%D1%82%D0%B8%2C%20%D0%94%D1%83%D1%88%D0%B0%D0%BD%D0%B1%D0%B5&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
@@ -1013,6 +1030,19 @@ footer{border-top:1px solid var(--line)}
 </div>
 <footer><span data-t="ft">© 2020–2026 BEK Express · Вы выбираете — мы доставляем</span><span>info@bek-express.com · +992 11 333 1999</span></footer>
 </div>
+<div class="pop" id="pop" role="dialog" aria-modal="true" aria-labelledby="pop-h">
+<div class="pop-card">
+<button class="pop-x" id="pop-x" type="button" aria-label="Закрыть">&times;</button>
+<h3 id="pop-h" data-t="pp-h">Как вам удобнее связаться?</h3>
+<p data-t="pp-p">Напишите или позвоните — менеджер ответит и всё посчитает.</p>
+<div class="pop-btns">
+<a class="btn btn-wa" href="https://wa.me/992113331999" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>WhatsApp</a>
+<a class="btn btn-line" href="https://t.me/+992113331999" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.3 13l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 2.8c.9-.3 1.6.2 1.4 1.5z"/></svg>Telegram</a>
+<a class="btn btn-line" href="tel:+992113331999"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span data-t="pp-c">Позвонить</span></a>
+</div>
+<p class="pop-note"><a href="#order" data-t="pp-n">Или оставьте номер — перезвоним сами</a></p>
+</div>
+</div>
 <div class="fab">
 <div class="fab-menu" id="fab-menu" hidden>
 <a href="https://wa.me/992113331999" target="_blank" rel="noopener">WhatsApp</a>
@@ -1026,7 +1056,7 @@ footer{border-top:1px solid var(--line)}
 </div>
 <script>
 var TJ={
-"sf-e":"Ростқавлона дар бораи хатарҳо","sf-h":"Агар чизе нодуруст равад","sf-p":"Роҳ дароз аст. Вақте чизе аз нақша берун меравад, мо чунин мекунем.",sf1t:"ДЕРКАРДА",sf1h:"Бор дер мемонад",sf1p:"Худамон занг мезанем, интизори саволи шумо намешавем. Мӯҳлати навро мегӯем.",sf2t:"ОСЕБ",sf2h:"Бор осеб дид",sf2p:"Ҷуброн мекунем. Шартҳои ҷубронро менеҷер пеш аз фиристодан мефаҳмонад.",sf3t:"ГУМРУК",sf3h:"Бор дар гумрук монд",sf3p:"Худамон ҳал мекунем. То ҳалли масъала шуморо бохабар нигоҳ медорем.","rv-e":"Тақризҳо","rv-h":"Мизоҷон чӣ менависанд","rv-p":"Мукотиба аз WhatsApp. Номҳоро бо хоҳиши мизоҷон пинҳон мекунем.","rv-ph":"Акси мукотиба",rv1:"Акси воқеиро илова мекунем",rv2:"Акси воқеиро илова мекунем",rv3:"Акси воқеиро илова мекунем","cs-e":"Бори воқеӣ","cs-h":"Як бор аз аввал то охир","cs-p":"Фиристодани муқаррарӣ чунин менамояд.","cs-v":"38 ҷой · 2,4 м³","cs-r":"Иву → Тоҷикистон",cs1d:"14.08",cs1:"Дар анбори Иву қабул шуд",cs2d:"16.08",cs2:"Аз Чин баромад",cs3d:"29.08",cs3:"Аз Хоргос гузашт",cs4d:"09.09",cs4:"Ба мизоҷ супорида шуд","cs-n":"Намуна. Ба бори воқеӣ бо санаҳои ҳақиқӣ иваз мекунем.","mg-ph":"АКС","mg-n":"Номи менеҷер","mg-r":"Дархости шуморо аз аввал то охир мебарад. Дар WhatsApp дар 15 дақиқа ҷавоб медиҳад.",t8:"Ҷавоб дар WhatsApp",t8v:"дар 15 дақиқа",tr1:"Офис",tr1v:"Душанбе, МТ «Душанбе Сити», Маркази 1",tr2:"Аз соли 2020 мебарем",tr2v:"Соли шашум дар ин хатсайр кор мекунем",tr3:"Instagram",tr4:"Тамос",tr4v:"+992 11 333 1999 · WhatsApp ва Telegram",
+"sf-e":"Ростқавлона дар бораи хатарҳо","sf-h":"Агар чизе нодуруст равад","sf-p":"Роҳ дароз аст. Вақте чизе аз нақша берун меравад, мо чунин мекунем.",sf1t:"ДЕРКАРДА",sf1h:"Бор дер мемонад",sf1p:"Худамон занг мезанем, интизори саволи шумо намешавем. Мӯҳлати навро мегӯем.",sf2t:"ОСЕБ",sf2h:"Бор осеб дид",sf2p:"Ҷуброн мекунем. Шартҳои ҷубронро менеҷер пеш аз фиристодан мефаҳмонад.",sf3t:"ГУМРУК",sf3h:"Бор дар гумрук монд",sf3p:"Худамон ҳал мекунем. То ҳалли масъала шуморо бохабар нигоҳ медорем.","rv-e":"Тақризҳо","rv-h":"Мизоҷон чӣ менависанд","rv-p":"Мукотиба аз WhatsApp. Номҳоро бо хоҳиши мизоҷон пинҳон мекунем.","rv-ph":"Акси мукотиба",rv1:"Акси воқеиро илова мекунем",rv2:"Акси воқеиро илова мекунем",rv3:"Акси воқеиро илова мекунем","cs-e":"Бори воқеӣ","cs-h":"Як бор аз аввал то охир","cs-p":"Фиристодани муқаррарӣ чунин менамояд.","cs-v":"38 ҷой · 2,4 м³","cs-r":"Иву → Тоҷикистон",cs1d:"14.08",cs1:"Дар анбори Иву қабул шуд",cs2d:"16.08",cs2:"Аз Чин баромад",cs3d:"29.08",cs3:"Аз Хоргос гузашт",cs4d:"09.09",cs4:"Ба мизоҷ супорида шуд","cs-n":"Намуна. Ба бори воқеӣ бо санаҳои ҳақиқӣ иваз мекунем.","pp-h":"Бо кадом роҳ тамос гиред?","pp-p":"Нависед ё занг занед — менеҷер ҷавоб медиҳад ва ҳама чизро ҳисоб мекунад.","pp-c":"Занг задан","pp-n":"Ё рақами худро гузоред — худамон занг мезанем","mg-n":"Абдуқодир","mg-r":"Менеҷери калон, 7 сол дар ширкат. Дархостро аз аввал то супоридан мебарад.",t8:"Ҷавоб дар WhatsApp",t8v:"дар 15 дақиқа",tr1:"Офис",tr1v:"Душанбе, МТ «Душанбе Сити», Маркази 1",tr2:"Аз соли 2020 мебарем",tr2v:"Соли шашум дар ин хатсайр кор мекунем",tr3:"Instagram",tr4:"Тамос",tr4v:"+992 11 333 1999 · WhatsApp ва Telegram",
 "ph-e":"Мо чӣ тавр кор мекунем","ph-h":"Анборҳо ва мошинҳои мо","ph-p":"Аксҳои воқеӣ аз анборҳои мо дар Чин ва боркунӣ.",ph1:"Анбори мо дар Урумчӣ",ph2:"Бодиққат бор мекунем, ҳар ҷойро мешуморем",ph3:"Мошин бор шуд — ба Тоҷикистон меравад",
 st23p:"Таъминкунанда борро бо рамзи шумо ба анбори мо месупорад. Мо онро ба Тоҷикистон мефиристем.",st45p:"Вақте бор расид, занг мезанем. Бо сомонӣ пардохт мекунед ва борро мегиред.",
 "ofc-e":"Тамос","ofc-h":"Офис дар маркази Душанбе","ofc-s":"Мо дар МТ «Душанбе Сити», дар маркази шаҳр.","ofc-a":"Суроға","ofc-b":"Дар Google Maps кушодан","ru-open":"Рӯйхатро нишон додан",q5:"Бастабандӣ дар панҷараи чӯбӣ",q6:"Гузоштани аломати «Шикананда»",q7:"Гузоштани аломатҳои «Боло»",
@@ -1218,6 +1248,22 @@ $('fab-btn').onclick=function(){var m=$('fab-menu');m.hidden=!m.hidden;this.setA
 $('fab-menu').addEventListener('click',function(){this.hidden=true;$('fab-btn').setAttribute('aria-expanded','false')});
 var saved='ru'; try{saved=localStorage.getItem('bek-lang')||'ru'}catch(e){}
 setLang(saved==='tj'?'tj':'ru');
+
+(function(){var p=document.getElementById('pop');if(!p)return;var K='bek_pop_seen';
+function seen(){try{return localStorage.getItem(K)==='1'}catch(e){return false}}
+function mark(){try{localStorage.setItem(K,'1')}catch(e){}}
+function close(){p.classList.remove('on');p.setAttribute('aria-hidden','true')}
+function open(){if(seen()||p.classList.contains('on'))return;mark();p.classList.add('on');p.setAttribute('aria-hidden','false');cleanup()}
+var t=null;
+function onScroll(){var h=document.body.scrollHeight-window.innerHeight;if(h>0&&window.scrollY/h>0.45)open()}
+function cleanup(){if(t){clearTimeout(t);t=null}window.removeEventListener('scroll',onScroll)}
+if(!seen()){t=setTimeout(open,20000);window.addEventListener('scroll',onScroll,{passive:true})}
+p.setAttribute('aria-hidden','true');
+p.addEventListener('click',function(e){if(e.target===p)close()});
+document.getElementById('pop-x').addEventListener('click',close);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+[].forEach.call(p.querySelectorAll('a'),function(a){a.addEventListener('click',close)});
+})();
 </script>
 </body>
 </html>
