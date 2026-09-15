@@ -6,7 +6,7 @@
 
 1. Открыть github.com/aida-masson/bek-express
 2. Удалить старое содержимое репозитория (или залить поверх)
-3. Перетащить в окно браузера ВСЁ содержимое этой папки — не саму папку, а файлы и папки внутри неё
+3. Перетащить в окно браузера ВСЁ содержимое этой папки — не саму папку, а файлы и папки внутри неё (папки fonts/ и img/ обязательно, без них сайт останется без шрифтов и картинок)
 4. Commit changes
 5. Settings → Pages → Source: Deploy from branch → main → / (root)
 6. Подождать 1–2 минуты
@@ -26,6 +26,8 @@
 | warehouses/khorgos/ | /warehouses/khorgos |
 | warehouses/foshan/ | /warehouses/foshan |
 | warehouses/uzbekistan/ | /warehouses/uzbekistan |
+| fonts/, fonts.css | шрифты сайта — один файл на все страницы |
+| img/ | картинки и логотипы |
 | og.jpg | картинка-превью для WhatsApp и Telegram |
 | favicon.png | иконка вкладки |
 | sitemap.xml, robots.txt | для Гугла |
