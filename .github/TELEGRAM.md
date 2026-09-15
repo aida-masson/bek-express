@@ -112,3 +112,82 @@ notifyTelegram(e.parameter);
 Самый быстрый путь, программировать нечего.
 Метрика → нужный отчёт (например «Посещаемость») → значок конверта над таблицей →
 периодичность «Каждый день» → адрес получателя → сохранить.
+
+---
+
+## 4. Новая таблица на корпоративном аккаунте — готовый скрипт
+
+Google не передаёт владение файлом между личным gmail и аккаунтом другой
+организации. Поэтому проще завести таблицу заново — сразу на нужном аккаунте,
+а старую отключить.
+
+### Порядок
+
+1. Зайти под **info@bek-express.com**, создать таблицу, например «Заявки BEK Express».
+2. **Расширения → Apps Script**, удалить содержимое и вставить код ниже.
+3. Вписать в первые две строки токен бота и id чата (или оставить пустыми —
+   тогда заявки просто пишутся в таблицу, без Telegram).
+4. **Развернуть → Новое развёртывание → Веб-приложение**:
+   запуск от имени — «от моего имени», доступ — «Все».
+5. Скопировать адрес, который заканчивается на `/exec`, и прислать мне —
+   я поменяю его на сайте. С этого момента заявки идут в новую таблицу.
+6. Старый скрипт: **Развернуть → Управление развёртываниями → Архивировать**.
+
+### Код целиком
+
+```javascript
+/* BEK Express — приём заявок с сайта */
+
+var TG_TOKEN = '';   // токен бота от @BotFather
+var TG_CHAT  = '';   // id чата
+
+var HEADERS = ['Дата', 'Телефон', 'Откуда груз', 'Расчёт', 'Язык', 'Страница', 'Статус'];
+
+function doPost(e) {
+  var p = (e && e.parameter) || {};
+  var sh = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  if (sh.getLastRow() === 0) sh.appendRow(HEADERS);
+
+  // сайт шлёт в from город, а следом расчёт — город берём до разделителя
+  var city = String(p.from || '').split(' · ')[0];
+
+  sh.appendRow([
+    Utilities.formatDate(new Date(), 'Asia/Dushanbe', 'dd.MM.yyyy HH:mm'),
+    "'" + (p.phone || ''),          // апостроф, чтобы +992 не превратился в формулу
+    city,
+    p.note || '',
+    p.lang === 'tj' ? 'таджикский' : 'русский',
+    p.page || '',
+    'Новая'
+  ]);
+
+  notifyTelegram(p, city);
+  return ContentService.createTextOutput('ok');
+}
+
+function notifyTelegram(p, city) {
+  if (!TG_TOKEN || !TG_CHAT) return;
+  var lines = [
+    '🆕 Заявка с сайта',
+    'Телефон: ' + (p.phone || '—'),
+    city ? 'Откуда груз: ' + city : '',
+    p.note ? p.note : '',
+    p.page ? 'Страница: ' + p.page : '',
+    p.lang === 'tj' ? 'Язык: таджикский' : ''
+  ].filter(String);
+  try {
+    UrlFetchApp.fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
+      method: 'post',
+      payload: { chat_id: TG_CHAT, text: lines.join('\n') },
+      muteHttpExceptions: true
+    });
+  } catch (err) { /* сбой уведомления не должен ломать запись в таблицу */ }
+}
+
+function doGet() {
+  return ContentService.createTextOutput('BEK Express — приём заявок');
+}
+```
+
+Колонка «Расчёт» здесь уже есть: туда попадает тип груза, объём, вес, плотность,
+тариф и примерная сумма — всё, что человек ввёл в калькулятор.
