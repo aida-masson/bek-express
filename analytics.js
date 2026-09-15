@@ -1,6 +1,6 @@
 (function(){
   var ID = 112550678;                 /* номер счётчика; 0 = выключено */
-  var VER = (location.pathname.indexOf('/v2/') === 0) ? 'v2' : 'v1';
+  var VER = 'main';                  /* на сайте одна версия дизайна */
   window.BEK_VER = VER;
 
   function goal(name, extra){

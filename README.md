@@ -18,8 +18,7 @@
 | Файл | Адрес |
 |---|---|
 | index.html | bek-express.com |
-| services/ | /services — услуги, условия, частые вопросы |
-| how/ | /how — как отправить первый груз + что нельзя везти |
+| how/ | /how — первый груз, услуги, что нельзя везти, частые вопросы |
 | warehouses/guangzhou/ | /warehouses/guangzhou |
 | warehouses/urumqi/ | /warehouses/urumqi |
 | warehouses/yiwu/ | /warehouses/yiwu |
