@@ -1,0 +1,23 @@
+name: Утренняя сводка Метрики в Telegram
+
+on:
+  schedule:
+    # 04:00 UTC = 09:00 в Душанбе
+    - cron: '0 4 * * *'
+  workflow_dispatch:          # кнопка «Run workflow» для ручной проверки
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Собрать и отправить сводку
+        env:
+          YM_COUNTER: ${{ secrets.YM_COUNTER }}
+          YM_TOKEN:   ${{ secrets.YM_TOKEN }}
+          TG_TOKEN:   ${{ secrets.TG_TOKEN }}
+          TG_CHAT:    ${{ secrets.TG_CHAT }}
+        run: node .github/scripts/metrika-report.mjs
