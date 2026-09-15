@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://bek-express.com/</loc><priority>1.0</priority></url>
-  <url><loc>https://bek-express.com/how/</loc><priority>0.8</priority></url>
-  <url><loc>https://bek-express.com/warehouses/guangzhou/</loc><priority>0.7</priority></url>
-  <url><loc>https://bek-express.com/warehouses/urumqi/</loc><priority>0.7</priority></url>
-  <url><loc>https://bek-express.com/warehouses/yiwu/</loc><priority>0.7</priority></url>
-  <url><loc>https://bek-express.com/warehouses/keqiao/</loc><priority>0.7</priority></url>
-  <url><loc>https://bek-express.com/warehouses/khorgos/</loc><priority>0.7</priority></url>
-  <url><loc>https://bek-express.com/warehouses/foshan/</loc><priority>0.7</priority></url>
-  <url><loc>https://bek-express.com/warehouses/uzbekistan/</loc><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/</loc><lastmod>2026-09-15</lastmod><priority>1.0</priority></url>
+  <url><loc>https://bek-express.com/how/</loc><lastmod>2026-09-15</lastmod><priority>0.8</priority></url>
+  <url><loc>https://bek-express.com/warehouses/guangzhou/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/warehouses/urumqi/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/warehouses/yiwu/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/warehouses/keqiao/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/warehouses/khorgos/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/warehouses/foshan/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
+  <url><loc>https://bek-express.com/warehouses/uzbekistan/</loc><lastmod>2026-09-15</lastmod><priority>0.7</priority></url>
 </urlset>
