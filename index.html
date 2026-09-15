@@ -373,12 +373,10 @@ $('c-go').onclick=function(){
  var q=quote();
  var details=D('k-'+kind)+' · '+fmt(t.v,3)+' м3 · '+fmt(t.w,1)+' кг'+(t.v>0?' · плотность '+fmt(t.w/t.v,0):'')+(q?(' · тариф '+q.rate+(q.unit==='kg'?'/кг':'/м3')+' · ~'+Math.round(q.sum)+'$'):' · тариф уточняется');
  var note='Расчёт: '+city+' · '+details;
- /* расчёт дублируем в поле from: таблица сохраняет только его */
- var fromCell=city+' · '+details;
  var btn=this; btn.disabled=true; btn.style.opacity=.55;
  $('c-err').textContent=D('cl-wait'); $('c-err').style.color=''; $('c-err').hidden=false;
  var req;
- try{req=CALLBACK_URL?fetch(CALLBACK_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({phone:ph,from:fromCell,note:note,lang:L(),page:location.pathname})}):Promise.reject()}
+ try{req=CALLBACK_URL?fetch(CALLBACK_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({phone:ph,type:'Расчёт груза',from:city,note:note,lang:L(),page:location.pathname})}):Promise.reject()}
  catch(e){req=Promise.reject()}
  req.then(function(){
   $('c-err').hidden=true;
@@ -421,7 +419,7 @@ if(hp&&hg&&hm){hg.onclick=function(){
   if(v.replace(/\D/g,'').length<7){ok(hm,M('Укажите номер телефона.','Рақами телефонро нависед.'),'rgb(221,29,35)');return}
   ok(hm,M('Отправляем…','Мефиристем…'),'rgb(91,97,106)');
   hg.disabled=true; hg.style.opacity=.55;
-  send({phone:v,from:'',note:'Обратный звонок — карта',page:location.pathname}).then(function(){
+  send({phone:v,type:'Обратный звонок',from:'',note:'Обратный звонок — карта',page:location.pathname}).then(function(){
     ok(hm,M('Приняли. Менеджер перезвонит.','Қабул кардем. Менеҷер занг мезанад.'),'rgb(22,120,60)');
     hp.value='';
   },function(){fail(hm,hg)});
@@ -446,7 +444,7 @@ if(op&&og&&om){og.onclick=function(){
   var from=Object.keys(picked).filter(function(k){return picked[k]}).join(', ');
   ok(om,M('Отправляем…','Мефиристем…'),'rgb(91,97,106)');
   og.disabled=true; og.style.opacity=.55;
-  send({phone:v,from:from,note:'Заявка с сайта',page:location.pathname}).then(function(){
+  send({phone:v,type:'Заявка с сайта',from:from,note:'Заявка с сайта',page:location.pathname}).then(function(){
     ok(om,M('Приняли. Перезвоним в рабочее время, 9:00–19:00.','Қабул кардем. Дар вақти корӣ занг мезанем, 9:00–19:00.'),'rgb(16,18,21)');
     op.value='';
   },function(){fail(om,og)});
