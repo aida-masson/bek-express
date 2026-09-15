@@ -371,11 +371,14 @@ $('c-go').onclick=function(){
  if(t.w<=0){bad(D('cl-eb'));return}
  $('c-err').hidden=true;
  var q=quote();
- var note='Расчёт: '+city+' · '+D('k-'+kind)+' · '+fmt(t.v,3)+' м3 · '+fmt(t.w,1)+' кг'+(t.v>0?' · плотность '+fmt(t.w/t.v,0):'')+(q?(' · тариф '+q.rate+(q.unit==='kg'?'/кг':'/м3')+' · ~'+Math.round(q.sum)+'$'):' · тариф уточняется');
+ var details=D('k-'+kind)+' · '+fmt(t.v,3)+' м3 · '+fmt(t.w,1)+' кг'+(t.v>0?' · плотность '+fmt(t.w/t.v,0):'')+(q?(' · тариф '+q.rate+(q.unit==='kg'?'/кг':'/м3')+' · ~'+Math.round(q.sum)+'$'):' · тариф уточняется');
+ var note='Расчёт: '+city+' · '+details;
+ /* расчёт дублируем в поле from: таблица сохраняет только его */
+ var fromCell=city+' · '+details;
  var btn=this; btn.disabled=true; btn.style.opacity=.55;
  $('c-err').textContent=D('cl-wait'); $('c-err').style.color=''; $('c-err').hidden=false;
  var req;
- try{req=CALLBACK_URL?fetch(CALLBACK_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({phone:ph,from:city,note:note,lang:L(),page:location.pathname})}):Promise.reject()}
+ try{req=CALLBACK_URL?fetch(CALLBACK_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({phone:ph,from:fromCell,note:note,lang:L(),page:location.pathname})}):Promise.reject()}
  catch(e){req=Promise.reject()}
  req.then(function(){
   $('c-err').hidden=true;
