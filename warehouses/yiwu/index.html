@@ -227,26 +227,33 @@ input{font-family:'Barlow',sans-serif}
 .v2c-lab,.v2c-lab2,.v2c-sub,.v2c-head,.card dt,.svc .tag,.v2-lang button{text-transform:uppercase!important;letter-spacing:.14em!important}
 .v2c-head{letter-spacing:.1em!important}
 
-/* ===== компактная шапка на телефоне ===== */
-@media (max-width:760px){
- header[data-dc-tpl="9"]>div{padding:10px 14px!important;gap:8px 14px!important;align-items:center!important}
- header[data-dc-tpl="9"] nav{order:5;flex:1 0 100%;margin-right:0!important;gap:14px!important;
-   font-size:13px!important;padding-top:8px;border-top:1px solid rgb(228,231,234);
-   overflow-x:auto;flex-wrap:nowrap!important;white-space:nowrap;-webkit-overflow-scrolling:touch}
- header[data-dc-tpl="9"] nav::-webkit-scrollbar{display:none}
- header[data-dc-tpl="9"] a[href^="tel:"]{font-size:18px!important;margin-left:auto}
- header[data-dc-tpl="9"] a[href*="wa.me"]{padding:9px 14px!important;font-size:12px!important}
- .v2-lang button{padding:7px 9px!important;font-size:11px!important}
- /* верхняя чёрная плашка короче */
- div[data-dc-tpl="6"]{font-size:11px!important;padding:7px 14px!important;gap:2px 12px!important}
- div[data-dc-tpl="6"] span:last-child{opacity:.75}
-}
-@media (max-width:420px){
- header[data-dc-tpl="9"] a[href^="tel:"]{font-size:16px!important}
+/* ===== шапка на телефоне: одна строка + выпадающее меню ===== */
+#bek-menu{display:contents}
+.bek-burger{display:none}
+@media (max-width:768px){
+ div[data-dc-tpl="6"]{display:none!important}
+ header[data-dc-tpl="9"]>div{flex-wrap:nowrap!important;align-items:center!important;
+   gap:10px!important;padding:8px 14px!important}
+ header[data-dc-tpl="9"] a[data-dc-tpl="11"]{gap:0!important}
+ header[data-dc-tpl="9"] a[data-dc-tpl="11"]>span{display:none!important}
+ header[data-dc-tpl="9"] a[data-dc-tpl="11"] img{height:30px!important}
+ header[data-dc-tpl="9"] a[href*="wa.me"]{margin-left:auto;padding:9px 14px!important;font-size:12px!important}
+ .bek-burger{display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+   background:#fff;border:1px solid rgb(16,18,21);color:rgb(16,18,21);
+   width:40px;height:38px;padding:0;cursor:pointer}
+ #bek-menu{display:none;position:absolute;left:0;right:0;top:100%;z-index:41;
+   flex-direction:column;align-items:flex-start;gap:16px;
+   background:#fff;border-bottom:3px solid rgb(255,212,0);
+   box-shadow:0 14px 28px rgba(16,18,21,.16);padding:18px 14px 20px}
+ #bek-menu[data-open="1"]{display:flex}
+ #bek-menu nav{flex-direction:column;flex-wrap:nowrap!important;gap:16px!important;
+   margin-right:0!important;font-size:16px!important}
+ #bek-menu a[href^="tel:"]{font-size:24px!important}
+ .v2-lang button{padding:9px 14px!important;font-size:12px!important}
 }
 
 </style>
-<div data-dc-tpl="6" style="background: rgb(16, 18, 21); color: rgb(255, 255, 255); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding: 9px clamp(14px, 2.4vw, 32px); font-size: 12.5px; font-weight: 500;"><span data-dc-tpl="7">Первый сертифицированный негосударственный почтовый оператор в Республике Таджикистан</span><span data-dc-tpl="8">Душанбе · 9:00–19:00, без выходных</span></div><header data-dc-tpl="9" style="position: sticky; top: 0px; z-index: 40; background: rgb(255, 255, 255); border-bottom: 3px solid rgb(255, 212, 0);"><div data-dc-tpl="10" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 13px clamp(14px, 2.4vw, 32px);"><a data-dc-tpl="11" href="/" style="display: flex; align-items: center; gap: 14px;"><img decoding="async" data-dc-tpl="12" src="/img/046a073731.png" alt="BEK Express" style="height: 38px; width: auto; display: block;"><span data-dc-tpl="13" style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(91, 97, 106); border-left: 1px solid rgb(216, 219, 224); padding-left: 14px;">Прямой карго-оператор</span></a><nav data-dc-tpl="14" style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 13.5px; font-weight: 600; margin-right: auto;"><a data-dc-tpl="15" href="/" style="color: rgb(16, 18, 21);">Услуги</a><a data-dc-tpl="17" href="/#warehouses" style="color: rgb(16, 18, 21);">Склады</a><a href="/how/" style="color: rgb(16, 18, 21);">Первый груз</a><a data-dc-tpl="18" href="/#office" style="color: rgb(16, 18, 21);">Контакты</a></nav><div class="v2-lang" role="group" aria-label="Язык"><button type="button" id="lang-ru" aria-pressed="true">RU</button><button type="button" id="lang-tj" aria-pressed="false">TJ</button></div><a data-dc-tpl="19" href="tel:+992113331999" style="font-family: &quot;Barlow Condensed&quot;, sans-serif; font-weight: 700; font-size: 21px; color: rgb(16, 18, 21); white-space: nowrap;">+992 11 333 1999</a><a data-dc-tpl="20" href="https://wa.me/992113331999" target="_blank" rel="noopener" class="scp0" style="background: rgb(221, 29, 35); color: rgb(255, 255, 255); padding: 11px 20px; font-size: 13px; font-weight: 600;">WhatsApp</a></div></header>
+<div data-dc-tpl="6" style="background: rgb(16, 18, 21); color: rgb(255, 255, 255); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; padding: 9px clamp(14px, 2.4vw, 32px); font-size: 12.5px; font-weight: 500;"><span data-dc-tpl="7">Первый сертифицированный негосударственный почтовый оператор в Республике Таджикистан</span><span data-dc-tpl="8">Душанбе · 9:00–19:00, без выходных</span></div><header data-dc-tpl="9" style="position: sticky; top: 0px; z-index: 40; background: rgb(255, 255, 255); border-bottom: 3px solid rgb(255, 212, 0);"><div data-dc-tpl="10" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding: 13px clamp(14px, 2.4vw, 32px);"><a data-dc-tpl="11" href="/" style="display: flex; align-items: center; gap: 14px;"><img decoding="async" data-dc-tpl="12" src="/img/046a073731.png" alt="BEK Express" style="height: 38px; width: auto; display: block;"><span data-dc-tpl="13" style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(91, 97, 106); border-left: 1px solid rgb(216, 219, 224); padding-left: 14px;">Прямой карго-оператор</span></a><div id="bek-menu"><nav data-dc-tpl="14" style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 13.5px; font-weight: 600; margin-right: auto;"><a data-dc-tpl="15" href="/" style="color: rgb(16, 18, 21);">Услуги</a><a data-dc-tpl="17" href="/#warehouses" style="color: rgb(16, 18, 21);">Склады</a><a href="/how/" style="color: rgb(16, 18, 21);">Первый груз</a><a data-dc-tpl="18" href="/#office" style="color: rgb(16, 18, 21);">Контакты</a></nav><div class="v2-lang" role="group" aria-label="Язык"><button type="button" id="lang-ru" aria-pressed="true">RU</button><button type="button" id="lang-tj" aria-pressed="false">TJ</button></div><a data-dc-tpl="19" href="tel:+992113331999" style="font-family: &quot;Barlow Condensed&quot;, sans-serif; font-weight: 700; font-size: 21px; color: rgb(16, 18, 21); white-space: nowrap;">+992 11 333 1999</a></div><a data-dc-tpl="20" href="https://wa.me/992113331999" target="_blank" rel="noopener" class="scp0" style="background: rgb(221, 29, 35); color: rgb(255, 255, 255); padding: 11px 20px; font-size: 13px; font-weight: 600;">WhatsApp</a><button type="button" id="bek-burger" class="bek-burger" aria-label="Меню" aria-expanded="false" aria-controls="bek-menu"><svg width="20" height="14" viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="2" y="0" fill="currentColor"></rect><rect width="20" height="2" y="6" fill="currentColor"></rect><rect width="20" height="2" y="12" fill="currentColor"></rect></svg></button></div></header>
 <div class="pg">
 <div class="pg-head">
 <a class="pg-back" href="/">← На главную</a>
@@ -348,6 +355,7 @@ var TJ={"Первый сертифицированный негосударст�
 var orig=new WeakMap();
 var SKIP={SCRIPT:1,STYLE:1,NOSCRIPT:1,TEXTAREA:1};
 var DYNBOX='#c-kind,#c-method,#c-vol,#c-wt,#c-den,#c-tar,#c-sum,#c-err,#h-msg,#o-msg';
+var BEK_META={ru:{t:"Склад в Иву — карго Иву (Yiwu) → Таджикистан | BEK Express",d:"Адрес склада BEK Express в Иву (Yiwu, 义乌) на китайском, телефон кладовщика и готовый текст для поставщика. Доставка в Таджикистан 12–22 дня."},tj:{t:"Анбор дар Иву — BEK Express",d:"Суроғаи анбори BEK Express дар Иву бо забони чинӣ, телефони анбордор ва матни тайёр барои таъминкунанда. Расонидан ба Тоҷикистон 12–22 рӯз."}};
 function apply(){
  var l=window.BEK_LANG||'ru';
  var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
@@ -367,6 +375,10 @@ window.BEK_APPLY=apply;
 function setLang(l){
  window.BEK_LANG=l;
  document.documentElement.lang=(l==='tj'?'tg':'ru');
+ var M=BEK_META[l]||BEK_META.ru;
+ document.title=M.t;
+ var md=document.querySelector('meta[name="description"]');
+ if(md)md.setAttribute('content',M.d);
  var a=document.getElementById('lang-ru'),b=document.getElementById('lang-tj');
  if(a)a.setAttribute('aria-pressed',l==='ru');
  if(b)b.setAttribute('aria-pressed',l==='tj');
@@ -381,6 +393,17 @@ var obs=new MutationObserver(function(){if((window.BEK_LANG||'ru')==='tj')apply(
 obs.observe(document.body,{childList:true,subtree:true});
 var saved='ru'; try{saved=localStorage.getItem('bek-lang')||'ru'}catch(e){}
 setLang(saved==='tj'?'tj':'ru');
+var bb=document.getElementById('bek-burger'), bm=document.getElementById('bek-menu');
+if(bb&&bm){
+ bb.onclick=function(){
+   var open=bm.getAttribute('data-open')!=='1';
+   bm.setAttribute('data-open',open?'1':'0');
+   bb.setAttribute('aria-expanded',open?'true':'false');
+ };
+ bm.addEventListener('click',function(e){
+   if(e.target.closest&&e.target.closest('a')){bm.setAttribute('data-open','0');bb.setAttribute('aria-expanded','false')}
+ });
+}
 })();
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/112550678" style="position:absolute;left:-9999px" alt=""></div></noscript>
