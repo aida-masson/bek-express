@@ -23,6 +23,45 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["MovingCompany","Organization"],"@id":"https://bek-express.com/#org","name":"BEK Express","alternateName":["БЕК Экспресс","Bek Express карго"],"url":"https://bek-express.com/","logo":{"@type":"ImageObject","url":"https://bek-express.com/favicon.png"},"image":"https://bek-express.com/og.jpg","email":"info@bek-express.com","telephone":"+992113331999","foundingDate":"2020","description":"Прямой карго-оператор: свои склады в Китае и Узбекистане, доставка грузов в Таджикистан. Первый сертифицированный негосударственный почтовый оператор в Республике Таджикистан.","slogan":"Ваш груз у нас, а не у посредников","priceRange":"$$","address":{"@type":"PostalAddress","streetAddress":"БЦ «Душанбе Сити», Центр 1","addressLocality":"Душанбе","addressCountry":"TJ"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}],"contactPoint":[{"@type":"ContactPoint","telephone":"+992113331999","contactType":"customer service","email":"info@bek-express.com","areaServed":["TJ","CN","UZ"],"availableLanguage":["ru","tg","uz"]}],"sameAs":["https://www.instagram.com/bek_express/"],"areaServed":[{"@type":"Country","name":"Таджикистан"},{"@type":"Country","name":"Китай"},{"@type":"Country","name":"Узбекистан"}],"knowsLanguage":["ru","tg","zh","uz"],"makesOffer":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Сборный груз из Китая в Таджикистан","description":"Возим небольшие партии вместе с грузами других клиентов — платите только за свой объём или вес."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Контейнерные перевозки Китай — Таджикистан","description":"Прямая доставка контейнеров из Китая в Таджикистан."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Железнодорожные перевозки","description":"Для тяжёлых и крупных партий, когда важна цена за тонну."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Грузы из Узбекистана в Таджикистан","description":"Два склада в Ташкенте, доставка в Таджикистан за 3–6 дней."}}],"location":[{"@type":"Place","@id":"https://bek-express.com/warehouses/urumqi/#place","name":"Склад BEK Express — Урумчи","url":"https://bek-express.com/warehouses/urumqi/","address":{"@type":"PostalAddress","streetAddress":"新疆维吾尔自治区乌鲁木齐市沙依巴克区顺康路4号华城物流A区B排34-35号","addressLocality":"乌鲁木齐","addressCountry":"CN"}},{"@type":"Place","@id":"https://bek-express.com/warehouses/khorgos/#place","name":"Склад BEK Express — Хоргос","url":"https://bek-express.com/warehouses/khorgos/","address":{"@type":"PostalAddress","streetAddress":"新疆霍尔果斯市62团工业园区中创库房A2","addressLocality":"霍尔果斯","addressCountry":"CN"}},{"@type":"Place","@id":"https://bek-express.com/warehouses/guangzhou/#place","name":"Склад BEK Express — Гуанчжоу","url":"https://bek-express.com/warehouses/guangzhou/","address":{"@type":"PostalAddress","streetAddress":"广州市白云区石井增槎路嘉忠物流中心5号门F栋4档 天明物流","addressLocality":"广州","addressCountry":"CN"}},{"@type":"Place","@id":"https://bek-express.com/warehouses/foshan/#place","name":"Склад BEK Express — Фошань","url":"https://bek-express.com/warehouses/foshan/","address":{"@type":"PostalAddress","streetAddress":"佛山市顺德区龙江镇涌口工业区富华路23号智慧物流园B区22号 天明物流","addressLocality":"佛山","addressCountry":"CN"}},{"@type":"Place","@id":"https://bek-express.com/warehouses/yiwu/#place","name":"Склад BEK Express — Иву","url":"https://bek-express.com/warehouses/yiwu/","address":{"@type":"PostalAddress","streetAddress":"浙江省义乌市福田物流中心A8幢165号","addressLocality":"义乌","addressCountry":"CN"}},{"@type":"Place","@id":"https://bek-express.com/warehouses/keqiao/#place","name":"Склад BEK Express — Кечао","url":"https://bek-express.com/warehouses/keqiao/","address":{"@type":"PostalAddress","streetAddress":"浙江省杭州市钱塘区红十五线7777号 传化公路港 新疆业务部门","addressLocality":"杭州","addressCountry":"CN"}},{"@type":"Place","@id":"https://bek-express.com/warehouses/uzbekistan/#place","name":"Склад BEK Express — Ташкент","url":"https://bek-express.com/warehouses/uzbekistan/","address":{"@type":"PostalAddress","streetAddress":"Ташкент, рынок Абу Сахий; Ташкент, Чорбог 53А","addressLocality":"Ташкент","addressCountry":"UZ"}}]},{"@type":"WebSite","@id":"https://bek-express.com/#website","url":"https://bek-express.com/","name":"BEK Express","inLanguage":["ru","tg"],"publisher":{"@id":"https://bek-express.com/#org"}}]}</script>
 </head>
 <body>
+<style id="bek-splash-css">
+#bek-splash{position:fixed;inset:0;z-index:99999;background:#FFD400;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;opacity:1;transition:opacity .5s ease,transform .5s cubic-bezier(.65,.02,.28,1)}
+#bek-splash img{width:min(42vw,280px);height:auto;display:block}
+#bek-splash .bs-tag{font-family:"Onest",system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#141412;opacity:.62}
+#bek-splash .bs-bar{width:min(34vw,190px);height:3px;background:rgba(20,20,18,.18);border-radius:99px;overflow:hidden}
+#bek-splash .bs-bar i{display:block;height:100%;width:0;background:#141412;border-radius:99px;animation:bs-fill 1.05s ease-out forwards}
+@keyframes bs-fill{to{width:100%}}
+#bek-splash.bs-out{opacity:0;transform:translateY(-8%);pointer-events:none}
+html.bs-lock,html.bs-lock body{overflow:hidden}
+@media (prefers-reduced-motion:reduce){#bek-splash{display:none!important}}
+</style>
+<div id="bek-splash" hidden aria-hidden="true">
+<img src="/img/046a073731.png" alt="BEK Express" width="413" height="81">
+<span class="bs-tag">Прямой карго-оператор</span>
+<span class="bs-bar"><i></i></span>
+</div>
+<script>
+(function(){
+var el=document.getElementById('bek-splash');
+if(!el)return;
+try{
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var KEY='bekSplashSeen',now=Date.now(),last=0;
+try{last=parseInt(localStorage.getItem(KEY)||'0',10)||0}catch(e){}
+if(now-last<43200000)return;
+try{localStorage.setItem(KEY,String(now))}catch(e){}
+el.hidden=false;
+document.documentElement.classList.add('bs-lock');
+var done=false;
+function off(){if(done)return;done=true;
+el.classList.add('bs-out');
+document.documentElement.classList.remove('bs-lock');
+setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el)},600);}
+setTimeout(off,1150);
+setTimeout(off,2600);
+}catch(e){try{el.hidden=true;document.documentElement.classList.remove('bs-lock')}catch(_){}}
+})();
+</script>
+
 <style>
 
     .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
