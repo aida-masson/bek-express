@@ -45,10 +45,6 @@ var el=document.getElementById('bek-splash');
 if(!el)return;
 try{
 if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-var KEY='bekSplashSeen',now=Date.now(),last=0;
-try{last=parseInt(localStorage.getItem(KEY)||'0',10)||0}catch(e){}
-if(now-last<43200000)return;
-try{localStorage.setItem(KEY,String(now))}catch(e){}
 el.hidden=false;
 document.documentElement.classList.add('bs-lock');
 var done=false;
