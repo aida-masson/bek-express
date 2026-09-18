@@ -652,5 +652,52 @@ header[data-dc-tpl="9"] a[data-dc-tpl="11"] img{height:28px !important}
 header[data-dc-tpl="9"] a[href*="wa.me"]{padding:8px 11px !important;font-size:12px !important}
 }
 </style>
+
+<style id="bek-polish-css">
+#calc{background:#FFFFFF !important}
+@keyframes bek-route{from{stroke-dashoffset:9}to{stroke-dashoffset:0}}
+#v2-map path[style*="stroke: rgb(221, 29, 35)"]{animation:bek-route 1.5s linear infinite}
+#v2-map circle[style*="fill: rgb(221, 29, 35)"]{transform-box:fill-box;transform-origin:center}
+a.scp0,header button,#calc button,.v2-lang button,#warehouses a,#v2-whs a{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}
+a.scp0:hover,header button:hover,#calc button:hover,.v2-lang button:hover{filter:brightness(1.08)}
+a.scp0:active,header button:active,#calc button:active,.v2-lang button:active{transform:translateY(1px)}
+#warehouses a:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(16,18,21,.14)}
+#warehouses a:active{transform:translateY(0);box-shadow:0 4px 10px rgba(16,18,21,.12)}
+@media (prefers-reduced-motion:reduce){
+#v2-map path[style*="stroke: rgb(221, 29, 35)"]{animation:none}
+a.scp0,header button,#calc button,.v2-lang button,#warehouses a{transition:none}
+}
+</style>
+<script>
+(function(){
+try{
+var host=document.querySelector('[data-dc-tpl="152"]');
+if(!host||!('IntersectionObserver' in window))return;
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var nums=[].slice.call(host.querySelectorAll('strong'));
+if(!nums.length)return;
+nums.forEach(function(el){el.setAttribute('data-final',el.textContent)});
+function run(el){
+var txt=el.getAttribute('data-final')||el.textContent;
+var parts=txt.match(/\d+|\D+/g)||[txt];
+var dur=1100,t0=0;
+function step(ts){
+if(!t0)t0=ts;
+var p=Math.min(1,(ts-t0)/dur),e=1-Math.pow(1-p,3);
+el.textContent=parts.map(function(pt){
+if(!/^\d+$/.test(pt))return pt;
+var v=parseInt(pt,10),start=v>=1000?v-30:0;
+return String(Math.round(start+(v-start)*e));
+}).join('');
+if(p<1){requestAnimationFrame(step)}else{el.textContent=txt}
+}
+requestAnimationFrame(step);
+}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);run(e.target)}})},{threshold:.6});
+nums.forEach(function(el){io.observe(el)});
+setTimeout(function(){nums.forEach(function(el){var f=el.getAttribute('data-final');if(f)el.textContent=f})},8000);
+}catch(e){}
+})();
+</script>
 </body>
 </html>
